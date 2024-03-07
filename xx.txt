@@ -1,0 +1,28 @@
+
+SELECT * FROM chevauxdecurie.cheval;
+SELECT * FROM chevauxdecurie.personne;
+SELECT * FROM chevauxdecurie.race;
+SELECT * FROM chevauxdecurie.concours;
+SELECT * FROM chevauxdecurie.croissance;
+SELECT * FROM chevauxdecurie.cheval WHERE nomRace = 'kol' ORDER BY nom_cheval DESC;
+SELECT taille_Race AS tailleType, poids_Rac AS Poidstype 
+FROM chevauxdecurie.race 
+WHERE nom = 'hel';
+SELECT *
+FROM chevauxdecurie.personne
+WHERE numPersSup IS NULL;
+SELECT *
+FROM chevauxdecurie.concours
+WHERE AnneeConcours = 2010;
+
+_____________________
+
+SELECT COUNT(*) FROM ETUDIANT;
+SELECT numCINetu, DATEDIFF(CURDATE(), datenaissance)/365.25 AS AGE FROM centremformation.etudiant;
+SELECT codeForm, titreForm, MAX(prixForm) FROM centremformation.formation;
+SELECT codeForm, titreForm, MIN(prixForm) FROM centremformation.formation;
+SELECT SUM(prixForm) FROM centremformation.formation;
+SELECT codeSess, COUNT(numCINetu) FROM centremformation.inscription GROUP BY codeSess;
+SELECT DISTINCT numCINetu FROM centremformation.inscription;
+SELECT numCINetu, COUNT(codeSess) FROM centremformation.inscription GROUP BY numCINetu;
+SELECT codeSess, typeCours, COUNT(numinscription) FROM inscription GROUP BY codeSess, typeCours;
